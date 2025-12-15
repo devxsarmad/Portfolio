@@ -1,7 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { ArrowDown, Github, Linkedin, Mail } from "lucide-react";
+import { ArrowDown, Download, Github, Linkedin, Mail } from "lucide-react";
 import Link from "next/link";
 
 export default function Hero() {
@@ -57,12 +57,14 @@ export default function Hero() {
               >
                 View My Work
               </Link>
-              <Link
-                href="#contact"
-                className="px-8 py-3 border-2 border-[#06B6D4] text-[#06B6D4] rounded-lg font-semibold hover:bg-[#06B6D4] hover:text-white transition-all duration-300"
+             <a
+                href="/Sarmad-Siddique-CV.pdf"
+                download="Sarmad-Siddique-CV.pdf"
+                className="px-8 py-3 border-2 border-[#06B6D4] text-[#06B6D4] rounded-lg font-semibold hover:bg-[#06B6D4] hover:text-white transition-all duration-300 flex items-center gap-2"
               >
-                Get In Touch
-              </Link>
+                <Download size={20} />
+                Download CV
+              </a>
             </div>
 
             {/* Social Links */}
