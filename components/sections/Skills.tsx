@@ -343,10 +343,7 @@ export default function Skills() {
             </button>
           </div>
 
-          {/* Swipe Instruction */}
-          <p className="text-center text-gray-500 text-sm mt-6">
-            💡 Swipe left or right to flip pages
-          </p>
+         
         </div>
 
         {/* Tech Stack Icons Below */}
