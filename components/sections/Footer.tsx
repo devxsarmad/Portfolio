@@ -12,7 +12,7 @@ export default function Footer() {
           <div>
             <h3 className="text-2xl font-bold text-gradient mb-4">Sarmad</h3>
             <p className="text-gray-400 mb-4">
-              Frontend Developer crafting beautiful and functional web experiences.
+              Software Engineer crafting beautiful and functional web experiences.
             </p>
             <div className="flex gap-4">
               <a
@@ -110,9 +110,9 @@ export default function Footer() {
           <p className="text-gray-400 text-sm">
             © {currentYear} Sarmad. All rights reserved.
           </p>
-          <p className="text-gray-400 text-sm flex items-center gap-1">
+          {/* <p className="text-gray-400 text-sm flex items-center gap-1">
             Made with <Heart size={16} className="text-red-500" fill="currentColor" /> using Next.js & Tailwind CSS
-          </p>
+          </p> */}
         </div>
       </div>
     </footer>
