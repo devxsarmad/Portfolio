@@ -1,7 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { Mail, MapPin, Phone, Send, CheckCircle, AlertCircle } from "lucide-react";
+import { Mail, MapPin, Phone, Send, CheckCircle, AlertCircle, Github, Linkedin, Twitter } from "lucide-react";
 import { useEffect, useState } from "react";
 import emailjs from "@emailjs/browser";
 
@@ -147,35 +147,45 @@ export default function Contact() {
             </div>
 
             {/* Social Links */}
-            <div className="mt-8">
-              <h4 className="font-semibold mb-4">Follow Me</h4>
-              <div className="flex gap-4">
-                <a
-                  href="https://github.com/devxsarmad"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="w-10 h-10 bg-[#1E293B] rounded-lg flex items-center justify-center hover:bg-[#06B6D4] transition-colors"
-                >
-                  <span className="text-sm">GH</span>
-                </a>
-                <a
-                  href="https://linkedin.com/in/sarmad404"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="w-10 h-10 bg-[#1E293B] rounded-lg flex items-center justify-center hover:bg-[#06B6D4] transition-colors"
-                >
-                  <span className="text-sm">LI</span>
-                </a>
-                <a
-                  href="https://twitter.com/yourusername"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="w-10 h-10 bg-[#1E293B] rounded-lg flex items-center justify-center hover:bg-[#06B6D4] transition-colors"
-                >
-                  <span className="text-sm">TW</span>
-                </a>
-              </div>
-            </div>
+           <div className="mt-8">
+  <h4 className="font-semibold mb-4">Follow Me</h4>
+
+  <div className="flex gap-4">
+    <a
+      href="https://github.com/devxsarmad"
+      target="_blank"
+      rel="noopener noreferrer"
+      className="w-10 h-10 bg-[#1E293B] rounded-lg flex items-center justify-center 
+                 hover:bg-[#06B6D4] transition-colors"
+      aria-label="GitHub"
+    >
+      <Github className="w-5 h-5 text-white" />
+    </a>
+
+    <a
+      href="https://linkedin.com/in/sarmad404"
+      target="_blank"
+      rel="noopener noreferrer"
+      className="w-10 h-10 bg-[#1E293B] rounded-lg flex items-center justify-center 
+                 hover:bg-[#06B6D4] transition-colors"
+      aria-label="LinkedIn"
+    >
+      <Linkedin className="w-5 h-5 text-white" />
+    </a>
+
+    <a
+      href="https://twitter.com/yourusername"
+      target="_blank"
+      rel="noopener noreferrer"
+      className="w-10 h-10 bg-[#1E293B] rounded-lg flex items-center justify-center 
+                 hover:bg-[#06B6D4] transition-colors"
+      aria-label="Twitter"
+    >
+      <Twitter className="w-5 h-5 text-white" />
+    </a>
+  </div>
+</div>
+
           </motion.div>
 
           {/* Contact Form */}

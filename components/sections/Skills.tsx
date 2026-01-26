@@ -130,8 +130,8 @@ export default function Skills() {
           <div className="hidden md:block absolute left-1/2 top-0 bottom-0 w-8 -translate-x-1/2 bg-linear-to-r from-[#0F172A] via-[#1E293B] to-[#0F172A] rounded-sm shadow-2xl"></div>
 
           {/* Page Counter */}
-          <div className="text-center relative z-999 mb-8">
-            <span className="text-gray-400 text-sm z-999">
+          <div className="text-center relative z-9 mb-8">
+            <span className="text-gray-400 text-sm z-9">
               Page {currentPage + 1} of {skillCategories.length}
             </span>
             <div className="flex justify-center gap-2 mt-2">
