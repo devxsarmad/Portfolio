@@ -58,7 +58,7 @@ export default function Hero() {
                 View My Work
               </Link>
              <a
-                href="/Sarmad-Siddique-CV.pdf"
+                href="/Sarmad Siddique-CV.pdf"
                 download="Sarmad-Siddique-CV.pdf"
                 className="px-8 py-3 border-2 border-[#06B6D4] text-[#06B6D4] rounded-lg font-semibold hover:bg-[#06B6D4] hover:text-white transition-all duration-300 flex items-center gap-2"
               >
