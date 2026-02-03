@@ -62,7 +62,7 @@ const projects = [
       "Date-based filtering and scheduling",
     ],
     role: "Built the Email Campaign Module (bulk emails, templates, recipient targeting, API integration) and Calendar Module (scheduling UI, date filtering, shipment visualization).",
-    liveUrl: "https://www.ultrashiptms.ai/",
+    liveUrl: "https://www.ultraship.ai/",
     githubUrl: "#",
   },
   {
