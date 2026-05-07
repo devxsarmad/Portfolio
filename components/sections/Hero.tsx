@@ -8,7 +8,7 @@ export default function Hero() {
   return (
     <section
       id="home"
-      className="min-h-screen flex items-center justify-center relative pt-16"
+      className="min-h-screen flex items-start md:items-center justify-center relative pt-24 md:pt-16"
     >
       <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12 w-full">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
@@ -24,23 +24,23 @@ export default function Hero() {
             </h1>
 
             <div className="text-2xl md:text-3xl text-gray-300 mb-6">
-              <span className="text-[#06B6D4]">Frontend Developer</span>
+              <span className="text-[#06B6D4]">MERN Stack Developer</span>
             </div>
 
             <p className="text-lg text-gray-400 mb-8 max-w-xl">
-              Building modern, responsive web applications with React, TypeScript, 
-              and Next.js. Specialized in creating seamless user experiences and 
-              scalable frontend architectures.
+              Building scalable, responsive, and high-performance web applications
+              with React.js, Next.js, Node.js, Express.js, and MongoDB. Focused on
+              full-stack architecture, API integration, and secure user experiences.
             </p>
 
             {/* Stats */}
             <div className="grid grid-cols-3 gap-6 mb-8">
               <div>
-                <h3 className="text-3xl font-bold text-[#06B6D4]">2.5+</h3>
+                <h3 className="text-3xl font-bold text-[#06B6D4]">3+</h3>
                 <p className="text-gray-400 text-sm">Years Experience</p>
               </div>
               <div>
-                <h3 className="text-3xl font-bold text-[#06B6D4]">15+</h3>
+                <h3 className="text-3xl font-bold text-[#06B6D4]">20+</h3>
                 <p className="text-gray-400 text-sm">Projects</p>
               </div>
               <div>
@@ -58,8 +58,8 @@ export default function Hero() {
                 View My Work
               </Link>
              <a
-                href="/Sarmad Siddique-CV.pdf"
-                download="Sarmad-Siddique-CV.pdf"
+                href="/images/projects/Sarmad-Siddique-Mern-Stack-CV.pdf"
+                download="Sarmad-Siddique-Mern-Stack-CV.pdf"
                 className="px-8 py-3 border-2 border-[#06B6D4] text-[#06B6D4] rounded-lg font-semibold hover:bg-[#06B6D4] hover:text-white transition-all duration-300 flex items-center gap-2"
               >
                 <Download size={20} />
@@ -110,26 +110,28 @@ export default function Hero() {
               <pre className="text-sm text-gray-300 font-mono">
                 <code>{`const developer = {
   name: "Sarmad",
-  role: "Frontend Developer",
+  role: "MERN Stack Developer",
   location: "Lahore, Pakistan",
-  experience: "2.5+ years",
+  experience: "3+ years",
   
   expertise: {
     primary: [
-      "React", 
+      "React.js", 
+      "Node.js",
+      "Express.js",
+      "MongoDB",
       "TypeScript",
-      "Next.js",
-      "Tailwind CSS"
+      "Next.js"
     ],
-    expanding: [
-      "NestJS",
-      "GraphQL", 
-      "Prisma",
-      "PostgreSQL"
+    additional: [
+      "RESTful APIs",
+      "JWT Auth",
+      "Redux Toolkit",
+      "Docker"
     ]
   },
   
-  currentFocus: "Building LIS",
+  currentFocus: "Scalable Full-Stack Applications",
   availableFor: "New Opportunities",
   
   contact: {

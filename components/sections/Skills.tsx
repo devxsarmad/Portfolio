@@ -14,61 +14,63 @@ import { useState } from "react";
 
 const skillCategories = [
   {
-    title: "Frontend Development",
+    title: "Frontend Technologies",
     icon: Code2,
     color: "#06B6D4",
     skills: [
-      { name: "React", level: 90 },
-      { name: "TypeScript", level: 85 },
-      { name: "Next.js", level: 88 },
+      { name: "React.js", level: 92 },
+      { name: "Next.js", level: 90 },
       { name: "JavaScript (ES6+)", level: 90 },
+      { name: "TypeScript", level: 86 },
       { name: "HTML5 & CSS3", level: 95 },
     ],
   },
   {
-    title: "Styling & UI",
-    icon: Palette,
+    title: "Backend Technologies",
+    icon: Server,
     color: "#22D3EE",
     skills: [
-      { name: "Tailwind CSS", level: 95 },
-      { name: "shadcn/ui", level: 85 },
-      { name: "Responsive Design", level: 90 },
-      { name: "CSS-in-JS", level: 80 },
+      { name: "Node.js", level: 82 },
+      { name: "Express.js", level: 82 },
+      { name: "RESTful APIs", level: 85 },
+      { name: "JWT Authentication", level: 80 },
+      { name: "Middleware Development", level: 78 },
     ],
   },
   {
-    title: "Backend & Database",
+    title: "Database Technologies",
     icon: Database,
     color: "#0891B2",
     skills: [
-      { name: "NestJS", level: 30 },
-      { name: "GraphQL", level: 40 },
-      { name: "Prisma", level: 45 },
-      { name: "PostgreSQL", level: 39 },
-      { name: "REST APIs", level: 60 },
+      { name: "MongoDB", level: 86 },
+      { name: "Mongoose", level: 82 },
+      { name: "Firebase", level: 72 },
+      { name: "MySQL (Basic)", level: 55 },
     ],
   },
   {
-    title: "State Management",
-    icon: Server,
+    title: "CSS Frameworks & UI",
+    icon: Palette,
     color: "#06B6D4",
     skills: [
-      { name: "Redux Toolkit", level: 85 },
-      { name: "React Query", level: 80 },
-      { name: "Zustand", level: 75 },
-      { name: "Context API", level: 90 },
+      { name: "Tailwind CSS", level: 95 },
+      { name: "Material UI (MUI)", level: 88 },
+      { name: "Ant Design", level: 86 },
+      { name: "Bootstrap", level: 84 },
+      { name: "Responsive UI Development", level: 92 },
     ],
   },
   {
-    title: "Tools & Others",
+    title: "State, Tools & Workflow",
     icon: Wrench,
     color: "#22D3EE",
     skills: [
       { name: "Git & GitHub", level: 90 },
-      { name: "React Hook Form", level: 88 },
-      { name: "Zod Validation", level: 85 },
-      { name: "Socket.IO", level: 70 },
-      { name: "Docker", level: 60 },
+      { name: "Redux Toolkit", level: 86 },
+      { name: "Context API", level: 90 },
+      { name: "Postman", level: 80 },
+      { name: "Docker", level: 72 },
+      { name: "ESLint & Prettier", level: 85 },
     ],
   },
 ];
@@ -120,7 +122,7 @@ export default function Skills() {
             Skills & <span className="text-gradient">Expertise</span>
           </h2>
           <p className="text-gray-400 text-lg max-w-2xl mx-auto">
-            Technologies and tools I work with to build amazing products
+            MERN stack technologies and tools I use to build production-ready applications
           </p>
         </motion.div>
 
@@ -378,14 +380,14 @@ export default function Skills() {
           </h3>
           <div className="flex flex-wrap justify-center gap-6">
             {[
-              "React",
+              "React.js",
               "TypeScript",
               "Next.js",
+              "Node.js",
+              "Express.js",
+              "MongoDB",
               "Tailwind CSS",
-              "NestJS",
               "GraphQL",
-              "Prisma",
-              "PostgreSQL",
               "Redux",
               "Git",
             ].map((tech, index) => (

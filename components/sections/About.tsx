@@ -42,7 +42,7 @@ export default function About() {
             About <span className="text-gradient">Me</span>
           </h2>
           <p className="text-gray-400 text-lg max-w-2xl mx-auto">
-            Passionate frontend developer with a focus on building exceptional digital experiences
+            MERN Stack Developer focused on building scalable and user-friendly web applications
           </p>
         </motion.div>
 
@@ -58,20 +58,19 @@ export default function About() {
             <h3 className="text-2xl font-bold mb-4 text-[#06B6D4]">My Journey</h3>
             <div className="space-y-4 text-gray-300 leading-relaxed">
               <p>
-                I'm a Frontend Developer with <strong>2.5+ years of experience</strong> specializing 
-                in building modern web applications. Currently working at a medical billing company, 
-                where I'm developing a comprehensive Laboratory Information System (LIS) using React, 
-                TypeScript, and Next.js.
+                I'm a MERN Stack Developer with <strong>3+ years of frontend experience</strong> and{" "}
+                <strong>2 years of backend experience</strong>, building modern and reliable
+                full-stack web applications for production use.
               </p>
               <p>
-                My expertise lies in creating <strong>responsive, user-friendly interfaces</strong> with 
-                a strong focus on performance and scalability. I'm passionate about clean code architecture 
-                and building reusable component libraries.
+                My expertise includes <strong>React.js, Next.js, Node.js, Express.js, and MongoDB</strong>,
+                along with RESTful API development, authentication systems, and database integration for
+                secure and maintainable applications.
               </p>
               <p>
-                I'm also expanding my skill set into <strong>full-stack development</strong>, learning 
-                backend technologies like NestJS, GraphQL, Prisma, and PostgreSQL to become a more 
-                versatile developer.
+                I focus on responsive UI development, backend integration, and performance optimization,
+                while collaborating with cross-functional teams to deliver clean, scalable, and
+                user-centered solutions.
               </p>
             </div>
           </motion.div>

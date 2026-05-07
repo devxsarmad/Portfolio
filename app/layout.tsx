@@ -14,9 +14,17 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Sarmad - Frontend Developer Portfolio",
-  description: "Frontend Developer specializing in React, TypeScript, Next.js and modern web technologies",
-  keywords: ["Frontend Developer", "React", "TypeScript", "Next.js", "Portfolio"],
+  title: "Sarmad - MERN Stack Developer Portfolio",
+  description:
+    "MERN Stack Developer specializing in React.js, Next.js, Node.js, Express.js, MongoDB, and scalable web applications",
+  keywords: [
+    "MERN Stack Developer",
+    "React.js",
+    "Node.js",
+    "Express.js",
+    "MongoDB",
+    "Portfolio",
+  ],
 };
 
 export default function RootLayout({
