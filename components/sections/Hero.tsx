@@ -62,7 +62,7 @@ export default function Hero() {
           transition={{ duration: 0.65, ease: [0.22, 1, 0.36, 1] }}
         >
           <motion.div
-            className="relative h-[220px] w-[220px] sm:h-[280px] sm:w-[280px] lg:h-[340px] lg:w-[340px]"
+            className="group relative h-[220px] w-[220px] sm:h-[280px] sm:w-[280px] lg:h-[340px] lg:w-[340px]"
             animate={
               reduceMotion
                 ? undefined
@@ -99,7 +99,7 @@ export default function Hero() {
                   src="/images/projects/me.jpg"
                   alt="Sarmad Siddique"
                   onError={() => setShowPortrait(false)}
-                  className="h-full w-full object-cover object-[50%_28%] grayscale"
+                  className="h-full w-full object-cover object-[50%_28%] grayscale transition-[filter,transform] duration-500 ease-out group-hover:grayscale-0"
                   animate={reduceMotion ? undefined : { scale: [1.03, 1.08, 1.03] }}
                   transition={{ duration: 7, repeat: Infinity, ease: "easeInOut" }}
                 />

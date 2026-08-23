@@ -4,6 +4,7 @@ import { AnimatePresence, motion, useReducedMotion } from "framer-motion";
 import { ChevronLeft, ChevronRight, ExternalLink, Info, Sparkles, X } from "lucide-react";
 import Image from "next/image";
 import { useState } from "react";
+import { createPortal } from "react-dom";
 
 type Project = {
   title: string;
@@ -243,10 +244,12 @@ export default function Projects() {
         </div>
       </div>
 
-      <AnimatePresence>
-        {selectedProject && (
+      {selectedProject &&
+        createPortal(
+          <AnimatePresence>
+            {selectedProject && (
           <motion.div
-            className="fixed inset-0 z-[80] flex items-center justify-center bg-black/55 px-4 py-6 backdrop-blur-[2px]"
+            className="fixed inset-0 z-[300] flex items-center justify-center bg-black/55 px-4 py-6 backdrop-blur-[2px]"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
@@ -330,8 +333,10 @@ export default function Projects() {
               </div>
             </motion.div>
           </motion.div>
+            )}
+          </AnimatePresence>,
+          document.body
         )}
-      </AnimatePresence>
     </section>
   );
 }
