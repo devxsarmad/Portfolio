@@ -1,134 +1,99 @@
 "use client";
 
-import { motion } from "framer-motion";
-import { Code2, Lightbulb, Rocket, Users } from "lucide-react";
+import { motion, useReducedMotion } from "framer-motion";
+import { BriefcaseBusiness, Headphones, Send, Sparkles, Trophy } from "lucide-react";
+import Link from "next/link";
 
-const highlights = [
+const stats = [
   {
-    icon: Code2,
-    title: "Clean Code",
-    description: "Writing maintainable, scalable, and well-documented code",
+    label: "Experience",
+    value: "3 years+",
+    icon: Sparkles,
   },
   {
-    icon: Rocket,
-    title: "Fast Learner",
-    description: "Quickly adapting to new technologies and frameworks",
+    label: "Completed",
+    value: "14+ Projects",
+    icon: BriefcaseBusiness,
   },
   {
-    icon: Users,
-    title: "Team Player",
-    description: "Collaborating effectively with cross-functional teams",
+    label: "AI Focused",
+    value: "RAG + Agents",
+    icon: Trophy,
   },
   {
-    icon: Lightbulb,
-    title: "Problem Solver",
-    description: "Finding creative solutions to complex challenges",
+    label: "Support",
+    value: "Everyday",
+    icon: Headphones,
   },
 ];
 
 export default function About() {
+  const reduceMotion = useReducedMotion();
+
   return (
-    <section id="about" className="py-20 bg-[#0F172A]">
-      <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12">
-        {/* Section Header */}
+    <section id="about" className="relative z-10 bg-white py-14 md:py-18">
+      <div className="section-shell">
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
+          className="text-center"
+          initial={{ opacity: 0, y: reduceMotion ? 0 : 22 }}
           whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6 }}
-          viewport={{ once: true }}
-          className="text-center mb-16"
+          transition={{ duration: 0.5 }}
+          viewport={{ once: true, margin: "-80px" }}
         >
-          <h2 className="text-4xl md:text-5xl font-bold mb-4">
-            About <span className="text-gradient">Me</span>
+          <div className="mb-5 flex items-center justify-center gap-5">
+            <span className="h-px w-12 bg-[#ffb99f]" />
+            <p className="text-base font-extrabold text-[var(--color-text)] md:text-lg">Introducing myself</p>
+            <span className="h-px w-12 bg-[#ffb99f]" />
+          </div>
+
+          <h2 className="text-balance text-4xl font-black leading-tight md:text-5xl">
+            <span className="bg-[linear-gradient(90deg,#ff5a00_0%,#8a3d28_48%,#171936_100%)] bg-clip-text text-transparent">
+              About Me
+            </span>
           </h2>
-          <p className="text-gray-400 text-lg max-w-2xl mx-auto">
-            MERN Stack Developer focused on building scalable and user-friendly web applications
-          </p>
+          <div className="mx-auto mt-4 h-1.5 w-28 rounded-full bg-[#ff9f7c]" />
         </motion.div>
 
-        {/* Content Grid */}
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 mb-16">
-          {/* Left - Story */}
-          <motion.div
-            initial={{ opacity: 0, x: -30 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.6 }}
-            viewport={{ once: true }}
-          >
-            <h3 className="text-2xl font-bold mb-4 text-[#06B6D4]">My Journey</h3>
-            <div className="space-y-4 text-gray-300 leading-relaxed">
-              <p>
-                I'm a MERN Stack Developer with <strong>3+ years of frontend experience</strong> and{" "}
-                <strong>2 years of backend experience</strong>, building modern and reliable
-                full-stack web applications for production use.
-              </p>
-              <p>
-                My expertise includes <strong>React.js, Next.js, Node.js, Express.js, and MongoDB</strong>,
-                along with RESTful API development, authentication systems, and database integration for
-                secure and maintainable applications.
-              </p>
-              <p>
-                I focus on responsive UI development, backend integration, and performance optimization,
-                while collaborating with cross-functional teams to deliver clean, scalable, and
-                user-centered solutions.
-              </p>
-            </div>
-          </motion.div>
-
-          {/* Right - Highlights */}
-          <motion.div
-            initial={{ opacity: 0, x: 30 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.6 }}
-            viewport={{ once: true }}
-          >
-            <h3 className="text-2xl font-bold mb-6 text-[#06B6D4]">What I Bring</h3>
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
-              {highlights.map((item, index) => (
-                <motion.div
-                  key={index}
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.4, delay: index * 0.1 }}
-                  viewport={{ once: true }}
-                  className="bg-[#1E293B] p-6 rounded-lg border border-gray-700 hover:border-[#06B6D4] transition-all duration-300"
-                >
-                  <item.icon className="w-10 h-10 text-[#06B6D4] mb-3" />
-                  <h4 className="text-lg font-semibold mb-2">{item.title}</h4>
-                  <p className="text-gray-400 text-sm">{item.description}</p>
-                </motion.div>
-              ))}
-            </div>
-          </motion.div>
-        </div>
-
-        {/* Bottom - Current Status
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
+          className="mt-10 grid gap-5 sm:grid-cols-2 lg:grid-cols-4"
+          initial={{ opacity: 0, y: reduceMotion ? 0 : 24 }}
           whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6 }}
-          viewport={{ once: true }}
-          className="bg-gradient-to-r from-[#06B6D4]/10 to-[#0891B2]/10 border border-[#06B6D4]/30 rounded-lg p-8 text-center"
+          transition={{ duration: 0.5, delay: 0.08 }}
+          viewport={{ once: true, margin: "-80px" }}
         >
-          <h3 className="text-2xl font-bold mb-3">
-            Currently Open to <span className="text-gradient">New Opportunities</span>
-          </h3>
-          <p className="text-gray-300 mb-6 max-w-2xl mx-auto">
-            I'm looking for exciting opportunities at innovative companies where I can contribute 
-            to impactful projects and continue growing as a developer.
+          {stats.map((stat) => (
+            <article
+              key={stat.label}
+              className="min-h-[135px] rounded-[14px] border-2 border-r-[#a9a9a9] border-t-[#a9a9a9] border-b-[#a9a9a9] border-l-[#f2f2f2] bg-white p-5 text-center shadow-xl shadow-slate-950/5"
+            >
+              <stat.icon className="mx-auto text-[var(--color-accent)]" size={28} strokeWidth={2.4} />
+              <h3 className="mt-4 text-lg font-black text-black">{stat.label}</h3>
+              <p className="mt-4 text-base font-extrabold text-[var(--color-text)]">{stat.value}</p>
+            </article>
+          ))}
+        </motion.div>
+
+        <motion.div
+          className="mx-auto mt-14 max-w-5xl text-center"
+          initial={{ opacity: 0, y: reduceMotion ? 0 : 22 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5, delay: 0.12 }}
+          viewport={{ once: true, margin: "-80px" }}
+        >
+          <h3 className="text-2xl font-black text-black md:text-3xl">Who I am</h3>
+          <p className="mx-auto mt-6 max-w-4xl text-balance text-base font-medium leading-8 text-black md:text-xl md:leading-9">
+            I am a Full Stack AI Developer focused on building intelligent, production-ready web applications with React, Next.js, Node.js, TypeScript, LLM APIs, RAG, and agentic workflows. My work spans healthcare software, productivity platforms, logistics systems, dashboards, APIs, and database-backed product workflows. I care about scalable architecture, clean user experiences, reliable backend systems, and practical AI features that solve real product problems.
           </p>
-          <div className="flex flex-wrap justify-center gap-4">
-            <span className="px-4 py-2 bg-[#1E293B] rounded-full text-sm border border-gray-700">
-              🚀 Available: January 2026
-            </span>
-            <span className="px-4 py-2 bg-[#1E293B] rounded-full text-sm border border-gray-700">
-              📍 Location: Lahore, Pakistan
-            </span>
-            <span className="px-4 py-2 bg-[#1E293B] rounded-full text-sm border border-gray-700">
-              💼 Open to: Remote/Hybrid
-            </span>
-          </div>
-        </motion.div> */}
+
+          <Link
+            href="#contact"
+            data-cursor="magnetic"
+            className="mt-10 inline-flex min-h-12 items-center justify-center gap-2 rounded-[12px] bg-[var(--color-accent)] px-7 text-lg font-black text-white shadow-xl shadow-orange-600/25 transition-transform duration-300 hover:-translate-y-1"
+          >
+            Hire Me
+            <Send size={20} />
+          </Link>
+        </motion.div>
       </div>
     </section>
   );

@@ -1,30 +1,40 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import SmoothScroll from "@/components/SmoothScroll";
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
-  subsets: ["latin"],
-});
-
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
-  subsets: ["latin"],
-});
-
 export const metadata: Metadata = {
-  title: "Sarmad - MERN Stack Developer Portfolio",
+  title: "Technical Skills | Expertise",
   description:
-    "MERN Stack Developer specializing in React.js, Next.js, Node.js, Express.js, MongoDB, and scalable web applications",
+    "Full Stack AI Developer building production-grade React, Next.js, Node.js, TypeScript, RAG, LLM, and agentic AI applications.",
+  icons: {
+    icon: "/images/projects/me.jpg",
+    shortcut: "/images/projects/me.jpg",
+    apple: "/images/projects/me.jpg",
+  },
   keywords: [
-    "MERN Stack Developer",
-    "React.js",
+    "Sarmad Siddique",
+    "Full Stack AI Developer",
+    "Full Stack AI Engineer",
+    "React",
+    "Next.js",
     "Node.js",
-    "Express.js",
-    "MongoDB",
-    "Portfolio",
+    "TypeScript",
+    "Generative AI",
+    "RAG",
+    "AI Agents",
   ],
+  openGraph: {
+    title: "Technical Skills | Expertise",
+    description:
+      "Production-grade full-stack applications with AI capabilities, RAG, LLMs, and agentic workflows.",
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Technical Skills | Expertise",
+    description:
+      "Full Stack AI Developer focused on React, Next.js, Node.js, TypeScript, RAG, LLMs, and AI agents.",
+  },
 };
 
 export default function RootLayout({
@@ -34,9 +44,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className="dark">
-      <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
-      >
+      <body>
         <SmoothScroll />
         {children}
       </body>

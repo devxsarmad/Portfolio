@@ -1,0 +1,201 @@
+"use client";
+
+import { motion, useMotionValue, useReducedMotion, useSpring } from "framer-motion";
+import { useEffect, useRef, useState } from "react";
+
+type Particle = {
+  x: number;
+  y: number;
+  vx: number;
+  vy: number;
+  life: number;
+  maxLife: number;
+  size: number;
+  color: string;
+};
+
+const colors = ["#ff5a00", "#ff8b4a", "#ffc34d", "#ffdf7a"];
+
+export default function CustomCursor() {
+  const canvasRef = useRef<HTMLCanvasElement | null>(null);
+  const particles = useRef<Particle[]>([]);
+  const lastPoint = useRef({ x: -100, y: -100 });
+  const currentPoint = useRef({ x: -100, y: -100, active: false });
+  const prefersReducedMotion = useReducedMotion();
+  const [hovered, setHovered] = useState(false);
+  const [pressed, setPressed] = useState(false);
+
+  const cursorX = useMotionValue(-100);
+  const cursorY = useMotionValue(-100);
+  const ringX = useSpring(cursorX, { stiffness: 250, damping: 28, mass: 0.35 });
+  const ringY = useSpring(cursorY, { stiffness: 250, damping: 28, mass: 0.35 });
+
+  useEffect(() => {
+    if (prefersReducedMotion) return;
+
+    const canvas = canvasRef.current;
+    const context = canvas?.getContext("2d");
+    const finePointer = window.matchMedia("(pointer: fine)").matches;
+    if (!canvas || !context || !finePointer) return;
+
+    let width = 0;
+    let height = 0;
+    let frame = 0;
+    let raf = 0;
+
+    const resize = () => {
+      const ratio = window.devicePixelRatio || 1;
+      width = window.innerWidth;
+      height = window.innerHeight;
+      canvas.width = width * ratio;
+      canvas.height = height * ratio;
+      canvas.style.width = `${width}px`;
+      canvas.style.height = `${height}px`;
+      context.setTransform(ratio, 0, 0, ratio, 0, 0);
+    };
+
+    const addParticles = (x: number, y: number) => {
+      const dx = x - lastPoint.current.x;
+      const dy = y - lastPoint.current.y;
+      const distance = Math.hypot(dx, dy);
+
+      if (distance < 8) return;
+
+      lastPoint.current = { x, y };
+      const count = Math.min(5, Math.max(2, Math.floor(distance / 18)));
+
+      for (let index = 0; index < count; index += 1) {
+        const angle = Math.atan2(dy, dx) + Math.PI + (Math.random() - 0.5) * 1.1;
+        const speed = 1.5 + Math.random() * 3.2;
+
+        particles.current.push({
+          x: x - dx * Math.random() * 0.55,
+          y: y - dy * Math.random() * 0.55,
+          vx: Math.cos(angle) * speed + (Math.random() - 0.5) * 0.7,
+          vy: Math.sin(angle) * speed + (Math.random() - 0.5) * 0.7,
+          life: 34 + Math.random() * 18,
+          maxLife: 52,
+          size: 2 + Math.random() * 4,
+          color: colors[Math.floor(Math.random() * colors.length)],
+        });
+      }
+
+      if (particles.current.length > 150) {
+        particles.current.splice(0, particles.current.length - 150);
+      }
+    };
+
+    const addIdleParticle = () => {
+      if (!currentPoint.current.active) return;
+
+      const angle = Math.random() * Math.PI * 2;
+      const radius = 10 + Math.random() * 18;
+      const speed = 0.25 + Math.random() * 0.8;
+
+      particles.current.push({
+        x: currentPoint.current.x + Math.cos(angle) * radius,
+        y: currentPoint.current.y + Math.sin(angle) * radius,
+        vx: Math.cos(angle) * speed,
+        vy: Math.sin(angle) * speed,
+        life: 24 + Math.random() * 18,
+        maxLife: 42,
+        size: 1.5 + Math.random() * 3.5,
+        color: colors[Math.floor(Math.random() * colors.length)],
+      });
+
+      if (particles.current.length > 170) {
+        particles.current.splice(0, particles.current.length - 170);
+      }
+    };
+
+    const moveCursor = (event: PointerEvent) => {
+      cursorX.set(event.clientX);
+      cursorY.set(event.clientY);
+      currentPoint.current = { x: event.clientX, y: event.clientY, active: true };
+      addParticles(event.clientX, event.clientY);
+
+      const target = event.target as HTMLElement | null;
+      setHovered(Boolean(target?.closest("a, button, [data-cursor='magnetic']")));
+    };
+
+    const draw = () => {
+      context.clearRect(0, 0, width, height);
+
+      if (frame % 4 === 0) {
+        addIdleParticle();
+      }
+
+      particles.current = particles.current.filter((particle) => {
+        particle.life -= 1;
+        particle.x += particle.vx;
+        particle.y += particle.vy;
+        particle.vx *= 0.95;
+        particle.vy *= 0.95;
+
+        const progress = particle.life / particle.maxLife;
+        if (progress <= 0) return false;
+
+        context.save();
+        context.globalAlpha = Math.min(1, progress * 1.25);
+        context.translate(particle.x, particle.y);
+        context.rotate(frame * 0.025 + particle.size);
+        context.fillStyle = particle.color;
+        context.shadowColor = particle.color;
+        context.shadowBlur = 12;
+        context.fillRect(-particle.size / 2, -particle.size / 2, particle.size, particle.size);
+        context.restore();
+
+        return true;
+      });
+
+      frame += 1;
+      raf = requestAnimationFrame(draw);
+    };
+
+    const handleDown = () => setPressed(true);
+    const handleUp = () => setPressed(false);
+
+    resize();
+    draw();
+
+    window.addEventListener("resize", resize);
+    window.addEventListener("pointermove", moveCursor);
+    window.addEventListener("pointerdown", handleDown);
+    window.addEventListener("pointerup", handleUp);
+
+    return () => {
+      cancelAnimationFrame(raf);
+      window.removeEventListener("resize", resize);
+      window.removeEventListener("pointermove", moveCursor);
+      window.removeEventListener("pointerdown", handleDown);
+      window.removeEventListener("pointerup", handleUp);
+    };
+  }, [cursorX, cursorY, prefersReducedMotion]);
+
+  if (prefersReducedMotion) return null;
+
+  return (
+    <>
+      <canvas
+        ref={canvasRef}
+        aria-hidden="true"
+        className="custom-cursor pointer-events-none fixed inset-0 z-[98] hidden"
+      />
+      <motion.div
+        aria-hidden="true"
+        className="custom-cursor pointer-events-none fixed left-0 top-0 z-[100] -ml-1.5 -mt-1.5 hidden h-3 w-3 rounded-full bg-[var(--color-text)]"
+        style={{ x: cursorX, y: cursorY }}
+      />
+      <motion.div
+        aria-hidden="true"
+        className="custom-cursor pointer-events-none fixed left-0 top-0 z-[99] -ml-4 -mt-4 hidden h-8 w-8 rounded-full border-2 border-[var(--color-text)] bg-transparent"
+        animate={{
+          scale: hovered ? 1.45 : pressed ? 0.72 : 1,
+          opacity: hovered ? 0.82 : 0.92,
+        }}
+        transition={{ duration: 0.18, ease: "easeOut" }}
+        style={{ x: ringX, y: ringY }}
+      />
+    </>
+  );
+}
