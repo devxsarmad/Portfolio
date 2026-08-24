@@ -99,7 +99,7 @@ export default function Contact() {
               <div className="mx-auto mt-3 h-1 w-20 rounded-full bg-[linear-gradient(90deg,#ff5a00_0%,#171936_100%)]" />
             </div>
 
-            <div className="grid gap-5">
+            <div className="grid gap-4 lg:h-[448px] lg:grid-rows-3">
               {contactCards.map((card) => (
                 <a
                   key={card.label}
@@ -107,16 +107,20 @@ export default function Contact() {
                   target={card.href.startsWith("http") ? "_blank" : undefined}
                   rel={card.href.startsWith("http") ? "noopener noreferrer" : undefined}
                   data-cursor="magnetic"
-                  className="group rounded-[14px] border border-[var(--color-accent)] bg-white p-6 text-center shadow-xl shadow-slate-950/5 transition-transform duration-300 hover:-translate-y-1 md:p-7"
+                  className="group flex items-center gap-4 rounded-[14px] border border-[var(--color-accent)] bg-white p-4 text-left shadow-xl shadow-slate-950/5 transition-transform duration-300 hover:-translate-y-1 md:p-5"
                 >
-                  <card.icon className="mx-auto text-[var(--color-accent)]" size={34} strokeWidth={2.6} />
-                  <h4 className="mt-5 text-xl font-black text-black">{card.label}</h4>
-                  <p className="mt-3 break-words text-base font-semibold text-[var(--color-text)] md:text-lg">
-                    {card.value}
-                  </p>
-                  <span className="mt-5 inline-flex min-h-11 items-center justify-center gap-2 rounded-[10px] bg-[var(--color-accent)] px-5 text-base font-black text-white shadow-lg shadow-orange-600/20 transition-transform duration-300 group-hover:-translate-y-0.5">
-                    {card.action}
-                    <ArrowRight size={18} />
+                  <span className="grid h-12 w-12 shrink-0 place-items-center rounded-[10px] bg-[#fff1ea] text-[var(--color-accent)] md:h-14 md:w-14">
+                    <card.icon size={26} strokeWidth={2.6} />
+                  </span>
+                  <span className="min-w-0 flex-1">
+                    <h4 className="text-lg font-black text-black md:text-xl">{card.label}</h4>
+                    <p className="mt-1 break-words text-sm font-semibold leading-5 text-[var(--color-text)] md:text-base">
+                      {card.value}
+                    </p>
+                    <span className="mt-3 inline-flex min-h-9 items-center justify-center gap-1.5 rounded-[9px] bg-[var(--color-accent)] px-4 text-sm font-black text-white shadow-lg shadow-orange-600/20 transition-transform duration-300 group-hover:-translate-y-0.5">
+                      {card.action}
+                      <ArrowRight size={15} />
+                    </span>
                   </span>
                 </a>
               ))}

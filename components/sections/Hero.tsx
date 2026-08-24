@@ -144,6 +144,7 @@ export default function Hero() {
           <div className="mt-7 flex flex-wrap justify-center gap-3 lg:justify-start">
             <a
               href="/images/projects/Sarmad_Full_Stack_AI.pdf"
+              download="Sarmad_Full_Stack_AI_Resume.pdf"
               data-cursor="magnetic"
               className="group inline-flex min-h-12 items-center justify-center gap-2 rounded-[10px] border-2 border-[var(--color-accent)] bg-white px-5 text-base font-extrabold text-[var(--color-accent)] shadow-lg shadow-orange-950/10 transition-transform duration-300 hover:-translate-y-1"
             >
