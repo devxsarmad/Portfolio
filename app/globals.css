@@ -107,6 +107,18 @@ html.theme-dark .custom-cursor {
   mix-blend-mode: normal;
 }
 
+html.theme-dark .back-to-top {
+  background: rgba(16, 20, 38, 0.94) !important;
+  border-color: rgba(255, 122, 42, 0.58) !important;
+  color: var(--color-accent) !important;
+  box-shadow: 0 18px 42px rgba(0, 0, 0, 0.36), 0 0 0 1px rgba(255, 122, 42, 0.08);
+}
+
+html.theme-dark .back-to-top:hover {
+  background: rgba(255, 106, 26, 0.16) !important;
+  color: #fff8f3 !important;
+}
+
 html.theme-dark .skills-section {
   background:
     radial-gradient(circle at 22% 18%, rgba(255, 106, 26, 0.1), transparent 18rem),
