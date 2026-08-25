@@ -14,6 +14,18 @@
   --color-ink: #ffffff;
 }
 
+html.theme-dark {
+  --color-background: #070914;
+  --color-surface: #101426;
+  --color-surface-strong: #1b2138;
+  --color-border: #ff7a2a;
+  --color-text: #f7f2ee;
+  --color-muted: #b3b8c8;
+  --color-accent: #ff6a1a;
+  --color-accent-warm: #ff9a5c;
+  --color-ink: #070914;
+}
+
 * {
   box-sizing: border-box;
 }
@@ -22,6 +34,106 @@ html,
 body {
   margin: 0;
   padding: 0;
+}
+
+html.theme-dark body {
+  background:
+    radial-gradient(circle at 52% 8%, rgba(255, 106, 26, 0.16), transparent 18rem),
+    linear-gradient(180deg, #070914 0%, #0b1020 38%, #151b2e 38%, #151b2e 68%, #070914 68%),
+    var(--color-background);
+}
+
+html.theme-dark body::before {
+  opacity: 0.22;
+  background-image:
+    linear-gradient(rgba(255, 106, 26, 0.07) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.035) 1px, transparent 1px);
+}
+
+html.theme-dark main,
+html.theme-dark footer,
+html.theme-dark section {
+  background: var(--color-background) !important;
+}
+
+html.theme-dark .bg-white,
+html.theme-dark input,
+html.theme-dark textarea {
+  background-color: var(--color-surface) !important;
+}
+
+html.theme-dark .text-black {
+  color: var(--color-text) !important;
+}
+
+html.theme-dark input,
+html.theme-dark textarea {
+  color: var(--color-text) !important;
+  border-color: rgba(255, 122, 42, 0.58) !important;
+}
+
+html.theme-dark input::placeholder,
+html.theme-dark textarea::placeholder {
+  color: rgba(179, 184, 200, 0.72) !important;
+}
+
+html.theme-dark .bg-\[\#ffe7db\],
+html.theme-dark .bg-\[\#fff1ea\],
+html.theme-dark .bg-\[\#fff6f1\],
+html.theme-dark .bg-\[\#fff8f3\] {
+  background-color: rgba(255, 106, 26, 0.13) !important;
+}
+
+html.theme-dark .bg-\[\#f7f7f7\] {
+  background-color: var(--color-background) !important;
+}
+
+html.theme-dark .border-black\/5 {
+  border-color: rgba(255, 255, 255, 0.08) !important;
+}
+
+html.theme-dark .bg-white\/90 {
+  background-color: rgba(16, 20, 38, 0.9) !important;
+}
+
+html.theme-dark .shadow-orange-950\/10,
+html.theme-dark .shadow-orange-950\/15,
+html.theme-dark .shadow-slate-950\/5,
+html.theme-dark .shadow-black\/25 {
+  --tw-shadow-color: rgba(0, 0, 0, 0.36) !important;
+}
+
+html.theme-dark .custom-cursor {
+  mix-blend-mode: normal;
+}
+
+html.theme-dark .skills-section {
+  background:
+    radial-gradient(circle at 22% 18%, rgba(255, 106, 26, 0.1), transparent 18rem),
+    linear-gradient(180deg, #080b16 0%, #0c1020 100%) !important;
+  border-top-color: rgba(255, 106, 26, 0.24) !important;
+}
+
+html.theme-dark .skill-card {
+  background: rgba(17, 22, 39, 0.92) !important;
+  border-color: rgba(255, 122, 42, 0.42) !important;
+  box-shadow: 0 22px 60px rgba(0, 0, 0, 0.24);
+}
+
+html.theme-dark .skill-card h3 {
+  color: #fff8f3;
+}
+
+html.theme-dark .skill-card .skill-pill {
+  background: rgba(255, 255, 255, 0.055) !important;
+  border-color: rgba(255, 122, 42, 0.38) !important;
+  color: #c7ccda !important;
+}
+
+html.theme-dark .skill-card .skill-pill:hover {
+  border-color: var(--color-accent) !important;
+  color: #fff8f3 !important;
+  background: rgba(255, 106, 26, 0.11) !important;
 }
 
 html {
@@ -91,6 +203,14 @@ body::before {
 
 .premium-border {
   border: 1px solid rgba(255, 90, 0, 0.26);
+}
+
+.skill-card {
+  background: rgba(255, 255, 255, 0.9);
+}
+
+.skill-pill {
+  background: rgba(255, 255, 255, 0.7);
 }
 
 .noise {

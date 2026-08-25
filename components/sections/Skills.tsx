@@ -49,7 +49,7 @@ export default function Skills() {
   const reduceMotion = useReducedMotion();
 
   return (
-    <section id="skills" className="relative z-10 border-t border-[rgba(255,90,0,0.12)] bg-[rgba(255,225,209,0.74)] py-16 md:py-22">
+    <section id="skills" className="skills-section relative z-10 border-t border-[rgba(255,90,0,0.12)] bg-[rgba(255,225,209,0.74)] py-16 md:py-22">
       <div className="section-shell">
         <div className="mb-9 grid gap-5 md:grid-cols-[0.8fr_1.2fr] md:items-end">
           <div>
@@ -67,7 +67,7 @@ export default function Skills() {
           {groups.map((group, index) => (
             <motion.article
               key={group.title}
-              className={`premium-border rounded-[8px] bg-[rgba(255,255,255,0.9)] p-4 transition-colors duration-300 hover:border-[rgba(255,90,0,0.42)] ${
+              className={`skill-card premium-border rounded-[8px] p-4 transition-colors duration-300 hover:border-[rgba(255,90,0,0.42)] ${
                 index === 0 ? "md:col-span-2 lg:col-span-2" : ""
               }`}
               initial={{ opacity: 0, y: reduceMotion ? 0 : 24 }}
@@ -89,7 +89,7 @@ export default function Skills() {
                 {group.skills.map((skill) => (
                   <span
                     key={skill}
-                    className="rounded-full border border-[rgba(255,90,0,0.22)] bg-[rgba(255,255,255,0.7)] px-2.5 py-1 text-xs text-[var(--color-muted)] transition-colors hover:border-[var(--color-accent)] hover:text-[var(--color-text)]"
+                    className="skill-pill rounded-full border border-[rgba(255,90,0,0.22)] px-2.5 py-1 text-xs text-[var(--color-muted)] transition-colors hover:border-[var(--color-accent)] hover:text-[var(--color-text)]"
                   >
                     {skill}
                   </span>

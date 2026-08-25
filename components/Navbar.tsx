@@ -1,6 +1,6 @@
 "use client";
 
-import { BriefcaseBusiness, Code2, Home, Send, UserRound, type LucideIcon } from "lucide-react";
+import { BriefcaseBusiness, Code2, Home, Moon, Send, Sun, UserRound, type LucideIcon } from "lucide-react";
 import Link from "next/link";
 import { useEffect, useState } from "react";
 import TerminalMode from "@/components/TerminalMode";
@@ -19,9 +19,29 @@ const dockItems: DockItem[] = [
   { id: "contact", label: "Contact", Icon: Send },
 ];
 
+const getInitialTheme = () => {
+  if (typeof window === "undefined") return false;
+
+  const savedTheme = window.localStorage.getItem("portfolio-theme");
+  if (savedTheme) return savedTheme === "dark";
+
+  return window.matchMedia("(prefers-color-scheme: dark)").matches;
+};
+
 export default function Navbar() {
   const [terminalOpen, setTerminalOpen] = useState(false);
   const [activeSection, setActiveSection] = useState("home");
+  const [darkMode, setDarkMode] = useState(getInitialTheme);
+
+  useEffect(() => {
+    document.documentElement.classList.toggle("theme-dark", darkMode);
+    document.documentElement.style.colorScheme = darkMode ? "dark" : "light";
+    window.localStorage.setItem("portfolio-theme", darkMode ? "dark" : "light");
+  }, [darkMode]);
+
+  const toggleTheme = () => {
+    setDarkMode((current) => !current);
+  };
 
   useEffect(() => {
     const updateActiveSection = () => {
@@ -59,15 +79,29 @@ export default function Navbar() {
             sarmad.dev
           </Link>
 
-          <button
-            onClick={() => setTerminalOpen(true)}
-            data-cursor="magnetic"
-            className="rounded-full border border-[rgba(255,90,0,0.28)] bg-[#ffe7db] px-4 py-2.5 text-sm font-extrabold text-[var(--color-accent)] shadow-lg shadow-orange-950/10 transition-transform duration-300 hover:-translate-y-0.5 md:px-5 md:text-base"
-            aria-haspopup="dialog"
-            aria-expanded={terminalOpen}
-          >
-            &lt;/terminal mode&gt;
-          </button>
+          <div className="flex items-center gap-2">
+            <button
+              type="button"
+              onClick={toggleTheme}
+              data-cursor="magnetic"
+              className="grid h-10 w-10 place-items-center rounded-full border border-[rgba(255,90,0,0.28)] bg-[#ffe7db] text-[var(--color-accent)] shadow-lg shadow-orange-950/10 transition-transform duration-300 hover:-translate-y-0.5 md:h-11 md:w-11"
+              aria-label={darkMode ? "Switch to light mode" : "Switch to dark mode"}
+              aria-pressed={darkMode}
+              title={darkMode ? "Light mode" : "Dark mode"}
+            >
+              {darkMode ? <Sun size={18} strokeWidth={2.6} /> : <Moon size={18} strokeWidth={2.6} />}
+            </button>
+
+            <button
+              onClick={() => setTerminalOpen(true)}
+              data-cursor="magnetic"
+              className="rounded-full border border-[rgba(255,90,0,0.28)] bg-[#ffe7db] px-4 py-2.5 text-sm font-extrabold text-[var(--color-accent)] shadow-lg shadow-orange-950/10 transition-transform duration-300 hover:-translate-y-0.5 md:px-5 md:text-base"
+              aria-haspopup="dialog"
+              aria-expanded={terminalOpen}
+            >
+              &lt;/terminal mode&gt;
+            </button>
+          </div>
         </div>
       </nav>
 
