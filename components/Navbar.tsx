@@ -2,7 +2,7 @@
 
 import { BriefcaseBusiness, Code2, Home, Moon, Send, Sun, UserRound, type LucideIcon } from "lucide-react";
 import Link from "next/link";
-import { useEffect, useState } from "react";
+import { useEffect, useState, useSyncExternalStore } from "react";
 import TerminalMode from "@/components/TerminalMode";
 
 type DockItem = {
@@ -19,7 +19,7 @@ const dockItems: DockItem[] = [
   { id: "contact", label: "Contact", Icon: Send },
 ];
 
-const getInitialTheme = () => {
+const getThemeSnapshot = () => {
   if (typeof window === "undefined") return false;
 
   const savedTheme = window.localStorage.getItem("portfolio-theme");
@@ -28,19 +28,34 @@ const getInitialTheme = () => {
   return window.matchMedia("(prefers-color-scheme: dark)").matches;
 };
 
+const subscribeTheme = (callback: () => void) => {
+  const media = window.matchMedia("(prefers-color-scheme: dark)");
+  const handleThemeChange = () => callback();
+
+  window.addEventListener("storage", handleThemeChange);
+  window.addEventListener("portfolio-theme-change", handleThemeChange);
+  media.addEventListener("change", handleThemeChange);
+
+  return () => {
+    window.removeEventListener("storage", handleThemeChange);
+    window.removeEventListener("portfolio-theme-change", handleThemeChange);
+    media.removeEventListener("change", handleThemeChange);
+  };
+};
+
 export default function Navbar() {
   const [terminalOpen, setTerminalOpen] = useState(false);
   const [activeSection, setActiveSection] = useState("home");
-  const [darkMode, setDarkMode] = useState(getInitialTheme);
+  const darkMode = useSyncExternalStore(subscribeTheme, getThemeSnapshot, () => false);
 
   useEffect(() => {
     document.documentElement.classList.toggle("theme-dark", darkMode);
     document.documentElement.style.colorScheme = darkMode ? "dark" : "light";
-    window.localStorage.setItem("portfolio-theme", darkMode ? "dark" : "light");
   }, [darkMode]);
 
   const toggleTheme = () => {
-    setDarkMode((current) => !current);
+    window.localStorage.setItem("portfolio-theme", darkMode ? "light" : "dark");
+    window.dispatchEvent(new Event("portfolio-theme-change"));
   };
 
   useEffect(() => {
