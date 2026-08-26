@@ -124,7 +124,7 @@ export default function Navbar() {
         aria-label="Section navigation"
         className="fixed bottom-4 left-1/2 z-[80] w-full -translate-x-1/2 px-4 sm:bottom-6"
       >
-        <div className="mx-auto flex w-fit max-w-[calc(100vw-5.5rem)] items-center gap-1.5 rounded-full border border-black/5 bg-white/90 px-3 py-2.5 shadow-2xl shadow-orange-950/15 backdrop-blur-xl sm:max-w-none sm:gap-5 sm:px-7 sm:py-3">
+        <div className="dock-shell mx-auto flex w-fit max-w-[calc(100vw-5.5rem)] items-center gap-1.5 rounded-full border border-black/5 bg-white/90 px-3 py-2.5 shadow-2xl shadow-orange-950/15 backdrop-blur-xl sm:max-w-none sm:gap-5 sm:px-7 sm:py-3">
           {dockItems.map(({ id, label, Icon }) => {
             const active = activeSection === id;
 
@@ -133,16 +133,15 @@ export default function Navbar() {
                 key={id}
                 href={`#${id}`}
                 aria-label={label}
-                title={label}
                 data-cursor="magnetic"
-                className={`group relative grid h-10 w-10 shrink-0 place-items-center rounded-full text-[var(--color-text)] transition-all duration-300 sm:h-12 sm:w-12 ${
+                className={`dock-link group relative grid h-10 w-10 shrink-0 place-items-center rounded-full text-[var(--color-text)] transition-all duration-300 sm:h-12 sm:w-12 ${
                   active
-                    ? "bg-[var(--color-accent)] text-white shadow-xl shadow-orange-600/30"
+                    ? "dock-link-active bg-[var(--color-accent)] text-white shadow-xl shadow-orange-600/30"
                     : "hover:bg-[#fff0e8] hover:text-[var(--color-accent)]"
                 }`}
               >
                 <Icon className="h-5 w-5 sm:h-[22px] sm:w-[22px]" strokeWidth={active ? 2.7 : 2.45} />
-                <span className="pointer-events-none absolute bottom-full mb-3 hidden rounded-[6px] bg-[var(--color-text)] px-2.5 py-1 text-xs font-bold text-white opacity-0 shadow-lg transition-opacity duration-200 group-hover:opacity-100 sm:block">
+                <span className="dock-tooltip pointer-events-none absolute bottom-full mb-3 hidden rounded-[6px] bg-[var(--color-text)] px-2.5 py-1 text-xs font-bold text-white opacity-0 shadow-lg transition-opacity duration-200 group-hover:opacity-100 sm:block">
                   {label}
                 </span>
               </Link>

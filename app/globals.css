@@ -96,6 +96,28 @@ html.theme-dark .bg-white\/90 {
   background-color: rgba(16, 20, 38, 0.9) !important;
 }
 
+html.theme-dark .dock-shell {
+  background: rgba(17, 22, 39, 0.9) !important;
+  border-color: rgba(255, 255, 255, 0.1) !important;
+  box-shadow: 0 22px 70px rgba(0, 0, 0, 0.34), inset 0 0 0 1px rgba(255, 255, 255, 0.03);
+}
+
+html.theme-dark .dock-link {
+  color: #f7f2ee !important;
+}
+
+html.theme-dark .dock-link:not(.dock-link-active):hover {
+  background: rgba(255, 106, 26, 0.14) !important;
+  color: var(--color-accent) !important;
+}
+
+html.theme-dark .dock-tooltip {
+  background: rgba(16, 20, 38, 0.96) !important;
+  border: 1px solid rgba(255, 122, 42, 0.34);
+  color: #fff8f3 !important;
+  box-shadow: 0 14px 34px rgba(0, 0, 0, 0.36);
+}
+
 html.theme-dark .shadow-orange-950\/10,
 html.theme-dark .shadow-orange-950\/15,
 html.theme-dark .shadow-slate-950\/5,
