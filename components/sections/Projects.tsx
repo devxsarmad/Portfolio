@@ -21,19 +21,22 @@ const projects: Project[] = [
     title: "Mediscribe AI",
     subtitle: "AI-powered healthcare/productivity platform",
     liveUrl: "https://mediscribe-ai-client.vercel.app/",
+    image: "/images/projects/mediscribe_AI.png",
     details:
       "Next.js and TypeScript product experience with AI chat, streaming responses, OpenAI-compatible workflows, and healthcare-oriented functionality.",
     tags: ["Next.js", "TypeScript", "AI Chat", "Streaming"],
     accent: "ai",
   },
   {
-    title: "TaskForge",
-    subtitle: "Task and project management application",
-    liveUrl: "https://task-forge-murex.vercel.app/",
+    title: "Tixora AI",
+    subtitle: "AI-assisted ticket and project operations platform",
+    liveUrl: "https://tixora-ai-iota.vercel.app/",
+    image: "/images/projects/tixora_AI.png",
+
     details:
-      "Modern full-stack productivity app focused on task workflows, project organization, scalable UI patterns, and product-grade user experience.",
-    tags: ["React", "Next.js", "Node.js", "Product UX"],
-    accent: "product",
+      "Full-stack project operations platform with organizations, project members, ticket boards, task assignment flows, activity tracking, AI-assisted workspace chat, secure cookie-based authentication, and PostgreSQL-backed workflows.",
+    tags: ["React", "TypeScript", "Node.js", "PostgreSQL", "AI Chat"],
+    accent: "ai",
   },
   {
     title: "Ultraship TMS",
@@ -120,6 +123,124 @@ function ProjectPreview({ project, large = false }: { project: Project; large?: 
         sizes="(max-width: 768px) 100vw, 50vw"
         className="object-contain object-center p-2 transition-transform duration-500 group-hover:scale-[1.02]"
       />
+    );
+  }
+
+  if (project.title === "Tixora AI") {
+    return (
+      <PreviewCanvas large={large} className="bg-[#f7f9fc] text-[#17233f]">
+        <div className="grid h-full w-full grid-cols-[190px_1fr] bg-[#f7f9fc] text-[#17233f]">
+          <aside className="border-r border-slate-200 bg-white p-6">
+            <div className="flex items-center justify-between">
+              <div className="flex items-center gap-4">
+                <span className="grid h-12 w-12 place-items-center rounded-[10px] border border-blue-100 bg-white text-3xl font-black text-blue-600 shadow-sm">
+                  ▥
+                </span>
+                <p className="text-3xl font-black leading-none">Tixora-AI</p>
+              </div>
+              <span className="grid h-10 w-10 place-items-center rounded-[8px] border border-slate-200 text-2xl text-slate-500">
+                ‹
+              </span>
+            </div>
+
+            <div className="mt-10 flex items-center gap-4">
+              <span className="grid h-11 w-11 place-items-center rounded-[10px] bg-blue-50 text-xl font-black text-blue-600">
+                T
+              </span>
+              <div>
+                <p className="text-xl font-black">No organization</p>
+                <p className="text-lg font-bold text-slate-500">Workspace</p>
+              </div>
+            </div>
+
+            <p className="mt-10 text-sm font-black uppercase text-slate-500">Navigate</p>
+            <nav className="mt-5 space-y-3 text-lg font-black text-slate-600">
+              {["Board", "My tasks", "Calendar", "Activity", "Ask Tixora"].map((item) => (
+                <div key={item} className="flex items-center gap-4 rounded-[8px] px-3 py-2">
+                  <span className="h-5 w-5 rounded-[5px] border-2 border-slate-300" />
+                  {item}
+                </div>
+              ))}
+              <div className="flex items-center gap-4 rounded-[8px] border-l-4 border-blue-600 bg-blue-50 px-3 py-3 text-blue-600">
+                <span className="h-5 w-5 rounded-[5px] border-2 border-blue-500" />
+                Settings
+              </div>
+            </nav>
+
+            <p className="mt-8 text-sm font-black uppercase text-slate-500">Projects</p>
+            <div className="mt-4 rounded-[8px] border border-dashed border-slate-200 p-4 text-lg font-bold text-slate-500">
+              No projects yet.
+            </div>
+          </aside>
+
+          <main className="p-10">
+            <div className="mx-auto max-w-[760px]">
+              <p className="text-sm font-black uppercase tracking-[0.18em] text-slate-500">
+                <span className="mr-3 text-blue-600">●</span>
+                Let&apos;s get you set up
+              </p>
+              <h4 className="mt-6 text-5xl font-black leading-tight text-[#17233f]">
+                A home for your team&apos;s best work.
+              </h4>
+              <p className="mt-5 text-2xl font-semibold text-slate-500">
+                A few details now. A more organized workday ahead.
+              </p>
+
+              <div className="mt-10 grid grid-cols-3 gap-8">
+                {[
+                  ["1", "Organization", "Create your workspace"],
+                  ["2", "Members", "Bring your team together"],
+                  ["3", "Project", "Start something great"],
+                ].map(([step, title, text], index) => (
+                  <div key={step} className="flex items-center gap-4">
+                    <span
+                      className={`grid h-11 w-11 place-items-center rounded-full border text-xl font-black ${
+                        index === 0
+                          ? "border-blue-100 bg-blue-600 text-white shadow-lg shadow-blue-500/20"
+                          : "border-slate-200 bg-white text-slate-500"
+                      }`}
+                    >
+                      {step}
+                    </span>
+                    <div>
+                      <p className="text-xl font-black">{title}</p>
+                      <p className="text-base font-semibold text-slate-500">{text}</p>
+                    </div>
+                  </div>
+                ))}
+              </div>
+
+              <div className="mt-12 rounded-[14px] border border-slate-200 bg-white p-8 shadow-xl shadow-slate-200/70">
+                <div className="flex items-start justify-between">
+                  <div>
+                    <span className="grid h-16 w-16 place-items-center rounded-[12px] border border-blue-100 bg-blue-50 text-4xl font-black text-blue-600">
+                      ▤
+                    </span>
+                    <h5 className="mt-6 text-4xl font-black">Create organization</h5>
+                    <p className="mt-4 text-xl font-semibold text-slate-500">
+                      Give your team a shared space for projects, people, and progress.
+                    </p>
+                  </div>
+                  <p className="text-base font-bold text-slate-500">Step 1 of 3</p>
+                </div>
+
+                <div className="mt-8">
+                  <p className="text-lg font-black">Organization name</p>
+                  <div className="mt-3 rounded-[10px] border border-slate-200 px-5 py-4 text-xl font-semibold text-slate-400">
+                    Example: Acme Operations
+                  </div>
+                </div>
+
+                <div className="mt-8 flex justify-end">
+                  <span className="rounded-[10px] bg-blue-600 px-9 py-4 text-xl font-black text-white shadow-lg shadow-blue-500/20">
+                    Create organization →
+                  </span>
+                </div>
+              </div>
+            </div>
+          </main>
+        </div>
+      </PreviewCanvas>
     );
   }
 
