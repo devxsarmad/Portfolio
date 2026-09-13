@@ -48,16 +48,16 @@ const projects: Project[] = [
     tags: ["Next.js", "GraphQL", "MongoDB", "shadcn/ui"],
     accent: "logistics",
   },
-  {
-    title: "Shiftly",
-    subtitle: "Shift management platform",
-    image: "/images/projects/shiftly_.png",
-    liveUrl: "#coming-soon",
-    details:
-      "Role-based workforce platform with scheduling flows, NestJS and GraphQL backend structure, Prisma, PostgreSQL, and Socket.IO notifications.",
-    tags: ["Next.js", "NestJS", "Prisma", "Socket.IO"],
-    accent: "product",
-  },
+{
+  title: "Shiftly",
+  subtitle: "Real-time workforce and shift management platform",
+  image: "/images/projects/shiftly_.png",
+  liveUrl: "https://shiftly-dmvr.vercel.app/",
+  details:
+    "Full-stack workforce platform with owner and driver roles, shift posting, driver applications, live Socket.IO notifications, arrival verification, shift lifecycle tracking, payments, ratings, NestJS GraphQL APIs, Prisma, and PostgreSQL.",
+  tags: ["Next.js", "NestJS", "GraphQL", "Prisma", "PostgreSQL", "Socket.IO"],
+  accent: "product",
+},
   {
     title: "Dynomo",
     subtitle: "Multi-business management platform",
