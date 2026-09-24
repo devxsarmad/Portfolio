@@ -56,7 +56,7 @@ export default function TerminalMode({
     () => ({
       about: [
         "Sarmad Siddique is a Full Stack AI Developer.",
-        "Focus: React, Next.js, Node.js, TypeScript, LLM APIs, RAG, and agentic AI workflows.",
+        "Focus: React, Next.js, Node.js, TypeScript, LLM APIs, event-driven systems, and payment integrations.",
         "Experience: 3+ years building full-stack production applications, including healthcare and product workflows.",
       ],
       contact: [
@@ -67,16 +67,22 @@ export default function TerminalMode({
       ],
       projects: [
         "MEDISCRIBE AI => AI-powered healthcare/productivity platform.",
+        "TIXORA AI => AI-assisted ticket and project operations platform.",
+        "MESHLY => Event-driven e-commerce microservices platform (coming soon).",
         "LIS / HEALTHCARE PLATFORM => Laboratory and healthcare workflow software.",
-        "TASKFORGE => Full-stack task and project management application.",
-        "ULTRASHIP / SHIFTLY / DYNOMO / MASTRYHUB => Additional shipped full-stack work.",
+        "ULTRASHIP TMS => Transportation management system.",
+        "SHIFTLY => Real-time workforce and shift management platform.",
+        "DYNOMO => Multi-business management platform.",
+        "MASTRYHUB => Course browsing, enrollment, dashboards, and progress tracking platform.",
       ],
       skills: [
         "AI / LLM => OpenAI APIs, LLM APIs, Prompt Engineering, Generative AI, RAG, Embeddings, Vector Databases, AI Agents, Tool Calling, LangChain, LangGraph.",
         "FULL STACK => TypeScript, JavaScript, React, Next.js, Node.js, Express.js, NestJS.",
-        "DATABASES => PostgreSQL, MongoDB, Prisma, Mongoose, Pinecone.",
+        "DATABASES / CACHE => PostgreSQL, MongoDB, Prisma, Mongoose, Redis, Pinecone.",
         "FRONTEND => Tailwind CSS, Redux Toolkit, React Hook Form, Zod, shadcn/ui.",
-        "BACKEND / INFRA => REST APIs, GraphQL, JWT, Docker, Git, Vercel, Render.",
+        "BACKEND / INFRA => REST APIs, GraphQL, JWT, Microservices, API Gateway, Docker, Docker Compose, Git, Vercel, Render.",
+        "MESSAGING / JOBS => RabbitMQ, BullMQ, event-driven architecture, background jobs.",
+        "PAYMENTS => Stripe, PaymentIntents, webhooks, checkout and payment workflows.",
       ],
     }),
     []

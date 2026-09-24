@@ -138,7 +138,7 @@ export default function Hero() {
           </p>
 
           <p className="mx-auto mt-3 max-w-xl text-base leading-7 text-[var(--color-muted)] lg:mx-0">
-            I build intelligent, scalable web applications and AI-powered products using modern full-stack technologies, RAG, LLMs, and agentic workflows.
+            I build intelligent, scalable products using modern full-stack technologies, RAG, LLMs, event-driven services, and secure payment workflows.
           </p>
 
           <div className="mt-7 flex flex-wrap justify-center gap-3 lg:justify-start">

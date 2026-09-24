@@ -31,7 +31,7 @@ const groups = [
   {
     title: "Databases",
     icon: Database,
-    skills: ["PostgreSQL", "MongoDB", "Prisma", "Mongoose", "Vector Databases", "Pinecone"],
+    skills: ["PostgreSQL", "MongoDB", "Prisma", "Mongoose", "Redis", "Vector Databases", "Pinecone"],
   },
   {
     title: "Frontend",
@@ -41,7 +41,25 @@ const groups = [
   {
     title: "Backend / Infrastructure",
     icon: Server,
-    skills: ["REST APIs", "GraphQL", "JWT Authentication", "Docker", "Git", "Vercel", "Render"],
+    skills: [
+      "REST APIs",
+      "GraphQL",
+      "JWT Authentication",
+      "Microservices",
+      "API Gateway",
+      "RabbitMQ",
+      "BullMQ",
+      "Background Jobs",
+      "Event-driven Architecture",
+      "Stripe",
+      "PaymentIntents",
+      "Webhooks",
+      "Docker",
+      "Docker Compose",
+      "Git",
+      "Vercel",
+      "Render",
+    ],
   },
 ];
 
@@ -59,7 +77,7 @@ export default function Skills() {
             </h2>
           </div>
           <p className="max-w-2xl text-base leading-7 text-[var(--color-muted)]">
-            A compact technical stack for building modern web products with LLM integrations, retrieval workflows, typed APIs, and polished user interfaces.
+            A compact technical stack for building modern web products with LLM integrations, event-driven services, reliable payment workflows, typed APIs, and polished user interfaces.
           </p>
         </div>
 
