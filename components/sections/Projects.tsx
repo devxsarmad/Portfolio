@@ -68,6 +68,16 @@ const projects: Project[] = [
     tags: ["React", "Node.js", "Express", "MongoDB"],
     accent: "business",
   },
+   {
+    title: "LIS / Healthcare Platform",
+    subtitle: "Laboratory information workflows",
+    image: "/images/projects/lis_healthcare.png",
+    liveUrl: "https://getlabservices.com/",
+    details:
+      "Healthcare software experience across laboratory modules, reporting, billing-oriented workflows, typed frontend/backend systems, and production delivery.",
+    tags: ["React", "TypeScript", "NestJS", "PostgreSQL"],
+    accent: "health",
+  },
   {
     title: "MastryHub",
     subtitle: "E-learning platform",
@@ -79,14 +89,27 @@ const projects: Project[] = [
     accent: "learning",
   },
   {
-    title: "LIS / Healthcare Platform",
-    subtitle: "Laboratory information workflows",
-    liveUrl: "https://lis-landing.vercel.app/",
-    details:
-      "Healthcare software experience across laboratory modules, reporting, billing-oriented workflows, typed frontend/backend systems, and production delivery.",
-    tags: ["React", "TypeScript", "NestJS", "PostgreSQL"],
-    accent: "health",
-  },
+  title: "Meshly",
+  subtitle: "Event-driven e-commerce microservices platform",
+  image: "/images/projects/meshly.png",
+  liveUrl: "#coming-soon",
+
+  details:
+    "Full-stack e-commerce platform with a Next.js storefront, independent Node.js and TypeScript microservices, API gateway, cookie-based authentication with refresh tokens, Redis-backed carts, MongoDB product catalog, PostgreSQL orders and payments, RabbitMQ events, Stripe PaymentIntents, webhooks, and Docker Compose orchestration.",
+  tags: [
+    "Next.js",
+    "TypeScript",
+    "Microservices",
+    "Docker",
+    "RabbitMQ",
+    "Stripe",
+    "PostgreSQL",
+    "MongoDB",
+    "Redis",
+  ],
+  accent: "product",
+},
+ 
 ];
 
 const projectsPerPage = 4;
@@ -537,7 +560,7 @@ export default function Projects() {
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.38, delay: index * 0.05 }}
               >
-                <div className="relative h-[170px] overflow-hidden border-b border-[#ffe1d1] bg-[#fff6f1] md:h-[235px]">
+                <div className="relative h-[170px] overflow-hidden border-b border-[#ffe1d1] bg-gradient-to-br from-[#fff6f1] to-[#ffe1d1] md:h-[235px]">
                   <ProjectPreview project={project} />
                 </div>
 
@@ -607,7 +630,7 @@ export default function Projects() {
           <AnimatePresence>
             {selectedProject && (
           <motion.div
-            className="fixed inset-0 z-[1000] flex items-center justify-center bg-black/55 px-4 py-6 backdrop-blur-[2px]"
+            className="fixed inset-0 z-[1000]  flex items-center justify-center bg-black/55 px-4 py-6 backdrop-blur-[2px]"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
